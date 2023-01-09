@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Convert Fahrenheit</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/minstyle.io@2.0.1/dist/css/minstyle.io.min.css">
+</head>
+
+<body>
+    <div class="p-3">
+        {% if result is not none %}
+        Your result is: {{result}} °C
+        {% else %}
+        <form action="{{ url_for('convert') }}" method="post">
+            <legend>Fahrenheit to Celsius convertor</legend>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="fahrenheit" name="fahrenheit" placeholder="Fahrenheit"
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+
+</html>
