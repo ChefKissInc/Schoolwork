@@ -29,11 +29,6 @@ def index() -> str:
     return render_template("index.html", x="potato")
 
 
-@app.route("/python_upgrade_instructions")
-def python_upgrade_instructions() -> str:
-    return render_template("python_upgrade_instructions.html")
-
-
 @app.route("/convert", methods=['GET', 'POST'])
 def convert() -> str:
     result = ((float(request.form['fahrenheit']) - 32)
