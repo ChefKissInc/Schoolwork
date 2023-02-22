@@ -80,7 +80,7 @@ def students(sid: int = None) -> str:
             cur.execute("UPDATE apousies SET hour = ?, day = ?, month = ?, year = ? WHERE id = ? AND hour = ? AND day = ? AND month = ? AND year = ?",
                         (data["hour"], data["day"], data["month"], data["year"], sid, apousia["hour"], apousia["day"], apousia["month"], apousia["year"]))
     elif request.method == 'DELETE':
-        data = request.get_json()
+        data = request.get_json(silent=True)
         if not data:
             cur.execute("DELETE FROM students WHERE id = ?", (sid,))
         else:
